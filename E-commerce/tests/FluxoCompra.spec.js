@@ -184,7 +184,7 @@ test('Fluxo de compra com carrinho vazio', async ({ login }) => {
 
 });
 
-test('Fluxo de compra cancelamento', async ({ login }) => {
+test('Fluxo de compra botão cancelar', async ({ login }) => {
   const page = login;
 
   // Pesquisar/adicionar um produto ao carrinho

@@ -31,12 +31,44 @@ Cenário: Selecionar produto
     E confirma a compra
     Então o usuário deve ver a mensagem de confirmação "THANK YOU FOR YOUR ORDER"
 
-    
-######### Caso de Teste 2 
-Objetivo: Realizar uma compra no site - Pesquisar produto
+######### Caso de Teste 2
+Objetivo: Realizar uma compra no site - selecionando dois item
 
 Passos      |     Descrição                     |   Entrada do Dado                         |    Saída do dado
- 1          |   Pesquisar produto               |   Item digitado                           |    Produto selecionado aparece visível
+ 1          |   Selecionar produto              |   um item da lista                        |    Produto selecionado aparece visível
+ 2          |   Selecionar produto              |   outro item da lista                     |    Produto selecionado aparece visível
+ 3          |   Adicionar o produto ao carrinho |   Click no botão                          |    Produto é adicionado ao carrinho; ícone do carrinho indica 1 item
+ 4          |   Acessar o carrinho              |   Clicar no ícone do carrinho             |    Página do carrinho é carregada mostrando o produto adicionado
+ 5          |   Acessar tela Checkout           |   Clicar no botão “Checkout”              |    Página de informações do comprador é carregada com campos “First Name”, “Last Name”, “Postal Code”
+ 6          |   Preencher dados do comprador    |   First Name: Barbara,                    |    Campos são preenchidos corretamente; botão “Continue” habilitado
+                                                    Last Name: Silva, 
+                                                    Postal Code: 12345
+ 7          |   Revisar pedido                  |   Conferir produto, quantidade e preço    |   Produtos, quantidades e preços exibidos corretamente
+ 8          |   Confirmar compra                |   Clicar no botão “Finish”                |   Página de confirmação aparece com mensagem “THANK YOU FOR YOUR ORDER”
+ 9          |   Verificação final               |   Conferir mensagem de confirmação        |   Compra concluída com sucesso, mensagem visível
+
+
+## usando Gherkin 
+Como usuário do e-commerce
+Quero selecionar dois produto, adicioná-los ao carrinho e finalizar a compra 
+
+Cenário: Selecionar produto
+    Dado que o usuário selecione um item especifico 
+    E adiciona o produto ao carrinho
+    E seleciona outro item
+    E adiciona no carrinho
+    E acessa o carrinho
+    E prossegue para o checkout
+    E preenche as informações do comprador
+    E revisa o pedido
+    E confirma a compra
+    Então o usuário deve ver a mensagem de confirmação "THANK YOU FOR YOUR ORDER"
+
+######### Caso de Teste 3
+Objetivo: Realizar uma compra no site - Ultimo da lista
+
+Passos      |     Descrição                     |   Entrada do Dado                         |    Saída do dado
+ 1          |   Selecionar produto              |   Ultimo item da lista                    |    Produto selecionado aparece visível
  2          |   Adicionar o produto ao carrinho |   Click no botão                          |    Produto é adicionado ao carrinho; ícone do carrinho indica 1 item
  3          |   Acessar o carrinho              |   Clicar no ícone do carrinho             |    Página do carrinho é carregada mostrando o produto adicionado
  4          |   Acessar tela Checkout           |   Clicar no botão “Checkout”              |    Página de informações do comprador é carregada com campos “First Name”, “Last Name”, “Postal Code”
@@ -53,9 +85,44 @@ Como usuário do e-commerce
 Quero selecionar um produto, adicioná-lo ao carrinho e finalizar a compra
 
 Cenário: Selecionar produto
-    Dado que o usuário selecione um item especifico 
+    Dado que o usuário selecione o ultimo item da lista 
     E adiciona o produto ao carrinho
     E acessa o carrinho
+    E prossegue para o checkout
+    E preenche as informações do comprador
+    E revisa o pedido
+    E confirma a compra
+    Então o usuário deve ver a mensagem de confirmação "THANK YOU FOR YOUR ORDER"
+
+    
+######### Caso de Teste 4 
+Objetivo: Realizar uma compra no site - Removendo um item do carrinho
+
+ 1          |   Selecionar produto              |   um item da lista                        |    Produto selecionado aparece visível
+ 2          |   Selecionar produto              |   outro item da lista                     |    Produto selecionado aparece visível
+ 3          |   Adicionar o produto ao carrinho |   Click no botão                          |    Produto é adicionado ao carrinho; ícone do carrinho indica 1 item
+ 4          |   Acessar o carrinho              |   Clicar no ícone do carrinho             |    Página do carrinho é carregada mostrando o produto adicionado
+ 5          |   Remover item do carrinho        |   Clicar no botão Remover                 |    Item ser removido
+ 6          |   Acessar tela Checkout           |   Clicar no botão “Checkout”              |    Página de informações do comprador é carregada com campos “First Name”, “Last Name”, “Postal Code”
+ 7          |   Preencher dados do comprador    |   First Name: Barbara,                    |    Campos são preenchidos corretamente; botão “Continue” habilitado
+                                                    Last Name: Silva, 
+                                                    Postal Code: 12345
+ 8          |   Revisar pedido                  |   Conferir produto, quantidade e preço    |   Produtos, quantidades e preços exibidos corretamente
+ 9          |   Confirmar compra                |   Clicar no botão “Finish”                |   Página de confirmação aparece com mensagem “THANK YOU FOR YOUR ORDER”
+10          |   Verificação final               |   Conferir mensagem de confirmação        |   Compra concluída com sucesso, mensagem visível
+
+
+## usando Gherkin 
+Como usuário do e-commerce
+Quero selecionar dois ou mais produto, adicioná-los ao carrinho, remover um e finalizar a compra dos demais
+
+Cenário: Selecionar produto
+    Dado que o usuário selecione um item especifico 
+    E adiciona o produto ao carrinho
+    E seleciona outro item
+    E adiciona no carrinho
+    E acessa o carrinho
+    E clicar em remover um
     E prossegue para o checkout
     E preenche as informações do comprador
     E revisa o pedido
@@ -69,7 +136,7 @@ Pré-requisito: Ter cadastro
 
 Passos      |     Descrição                         |   Entrada do Dado                                 |   Saída do dado
 1	        |   Acessar a página do e-commerce      |   URL: https://www.saucedemo.com/                     Página de login é carregada com campos “Username” e “Password” visíveis
-2	        |Fazer login	                        |   Username: standard_user, Password: secret_sauce	|   Usuário é autenticado, redirecionado para a página de produtos (/inventory.html)
+2	        |   Fazer login	                        |   Username: standard_user, Password: secret_sauce	|   Usuário é autenticado, redirecionado para a página de produtos (/inventory.html)
 
 
 ## usando Gherkin 
